@@ -7,21 +7,21 @@
 
   <title>Berkeley Research and Development</title>
 
-  <link href="{{ url_for('static', filename='common.css') }}" rel="stylesheet" />
-
   <!-- Google fonts -->
-  <link href='http://fonts.googleapis.com/css?family=Roboto:400,500,300' rel='stylesheet' type='text/css'>
+  <link href='http://fonts.googleapis.com/css?family=Roboto+Slab:400,300,700,100' rel='stylesheet' type='text/css'>
 
   <!-- Bootstrap -->
   <link href="{{ url_for('static', filename='bootstrap.css') }}" rel="stylesheet" />
+  <link href="{{ url_for('static', filename='bootstrap.min.css') }}" rel="stylesheet" />
 
-  <!-- do we need this tuff?-->
-  <!--
-  <link rel="stylesheet" type="text/css" media="all" href="css/bootstrap.min.css">
-  <link rel="stylesheet" type="text/css" media="all" href="css/global.css">
+  <!-- ours -->
+  <link href="{{ url_for('static', filename='common.css') }}" rel="stylesheet" />
+
   <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
-  <script type="text/javascript" language="javascript" charset="utf-8" src="js/bootstrap.min.js"></script>
-  -->
+  <script type="text/javascript" language="javascript" charset="utf-8" src="{{ url_for('static', filename='scripts/bootstrap.min.js') }}"></script>
+
+  {% block styles %}
+  {% endblock %}
 </head>
 
 
@@ -64,7 +64,7 @@
       </div>
     </div>
 
-    <!-- Main component for a primary marketing message or call to action -->
+    <!-- Main component for a primary marketing message or call to action
     <div class="jumbotron">
       <h1>Navbar example</h1>
       <p>This example is a quick exercise to illustrate how the default, static navbar and fixed to top navbar work. It includes the responsive CSS and HTML, so it also adapts to your viewport and device.</p>
@@ -72,6 +72,7 @@
         <a class="btn btn-large btn-primary" href="http://getbootstrap.com/components/#navbar">View navbar docs &raquo;</a>
       </p>
     </div>
+    -->
 
     <div class="container">
       {% with msgs = get_flashed_messages() %}
@@ -84,14 +85,10 @@
       {% endif %}
       {% endwith %}
 
-      <div class="page-header">
-        <h1>Berkeley RND</h1>
-      </div>
-      
-      {% block content %}{% endblock %}
-
+      {% block textcontent %}{% endblock %}
     </div>
 
+    {% block content %}{% endblock %}
 
   </div> <!-- /wrap -->
 
@@ -102,9 +99,5 @@
     </div>
   </div>
 
-  <!-- Bootstrap core JavaScript
-    ================================================== -->
-  <script src="{{ url_for('static', filename='jquery.js') }}"></script>
-  <script src="{{ url_for('static', filename='bootstrap.min.js') }}"></script>
 </body>
 </html>
