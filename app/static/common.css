@@ -11,7 +11,30 @@ body {
 p {
   font-family: 'Roboto Slab', 'Helvetica Neue', sans-serif;
   font-weight: 200;
+  font-size:0.8em;
+}
+
+p.title {
+  font-weight: 300;
   font-size:2em;
+  margin-bottom: -10px;
+}
+
+.navbar {
+  margin-bottom: 0px;
+  background-color: #333333;
+  border-radius: 0px;
+}
+
+.navbar-nav>.active>a {
+  background-color: #333333;
+}
+.navbar-nav>li>a {
+  font-weight: 500;
+}
+.navbar-nav>li.active>a {
+  color: #37b34a;
+  border-bottom: 5px solid #37b34a;
 }
 
 /* Wrapper for page content to push down footer */

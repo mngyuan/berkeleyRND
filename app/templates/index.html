@@ -25,14 +25,12 @@
 
 
 
-{% block textcontent %}
-<!--
+<!--{% block textcontent %}
       <div class="page-header">
         <h1>Berkeley RND</h1>
         <p>We're makers, do-ers, tinker-ers, whatever you want to call it, and I'm coding way too late at night to be writing lorem ipsums.</p>
       </div>
--->
-{% endblock %}
+{% endblock %}-->
 
 
 
@@ -47,24 +45,38 @@
 
 <div id="intro">
   <div class="story">
-    <div class="float-left">
-      <p>This is a test.</p>
+    <div class="center">
+      <img src="{{ url_for('static', filename='images/logo dark.png') }}" style="height: 60%; width: auto; margin-top:-50px;">
+      <p class="title">Design. Engineer. Build.</p>
+      <p>Welcome to Berkeley R&amp;D, where ideas and designs meet with soldering guns
+        and raw material. If you can design it, you can build it.</p>
     </div>
   </div>
 </div>
 
 <div id="second">
   <div class="story">
-    <div class="float-right">
-  	  <p>Este es una test.</p>
+    <div class="float-left">
+  	  <p class="title">We're makers.</p>
+      <p>and we make in teams, discussing, debating, tinkering and remaking.</p>
     </div>
   </div>
 </div>
 
 <div id="third">
   <div class="story">
-    <div class="center">
-  	  <p>Early morning, chillaxing and coding.</p>
+    <div class="float-right">
+      <p class="title">We’re do-ers.</p>
+      <p>and we make in teams, discussing, debating, tinkering and remaking.</p>
+    </div>
+  </div>
+</div>
+
+<div id="fourth">
+  <div class="story">
+    <div class="center" style="margin-top: 100px;">
+      <p class="title">I wish that</p>
+      <p>these goddamn pictures had more vibrant colors in them. hi shum this is the actual website not the illustrator mockup.</p>
     </div>
   </div>
 </div>
