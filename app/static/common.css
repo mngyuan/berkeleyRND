@@ -20,6 +20,11 @@ p.title {
   margin-bottom: -10px;
 }
 
+b {
+  font-weight: 300;
+  font-style: normal;
+}
+
 .navbar {
   margin-bottom: 0px;
   background-color: #333333;
@@ -30,11 +35,18 @@ p.title {
   background-color: #333333;
 }
 .navbar-nav>li>a {
+  transition: 0.2s;
   font-weight: 500;
+}
+.navbar-nav>li>a:hover {
+  color: white;
 }
 .navbar-nav>li.active>a {
   color: #37b34a;
   border-bottom: 5px solid #37b34a;
+}.navbar-nav>li.active>a:hover {
+  background-color: #4d4d4d;
+  color: white;
 }
 
 /* Wrapper for page content to push down footer */
