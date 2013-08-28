@@ -1,6 +1,6 @@
 # what each page will look like
 
-from app import app
+from rndapp import app
 from flask import render_template, flash, redirect
 # from forms import LoginForm
 
