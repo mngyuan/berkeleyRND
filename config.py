@@ -1,5 +1,7 @@
 CSRF_ENABLED = True
-SECRET_KEY = 'someday-maybe-m'
+SECRET_KEY = 'c0a3a867444f3b764642727099c2b721'
+
+# the md5 of someday-maybe-m
 
 # OPENID_PROVIDERS = [
 #     { 'name': 'Google', 'url': 'https://www.google.com/accounts/o8/id' },
