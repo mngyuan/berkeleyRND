@@ -1,0 +1,5 @@
+DEPLOYMENT INSTRUCTIONS
+
+1. Set DEBUG in config.py to be False !!IMPORTANT!!
+2. Commit and push changes to repo
+3. Upload project directory to public_html on ssh.ocf.berkeley.edu
