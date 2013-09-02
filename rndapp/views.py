@@ -1,12 +1,12 @@
 # what each page will look like
 
 from rndapp import app
-from flask import render_template, flash, redirect
+from flask import render_template, flash, redirect, request
 # from forms import LoginForm
 
 
 @app.route('/')
-@app.route('/index')
+@app.route('/home')
 def index():
     #placeholder vars
     user = {'nickname': 'Kevin'}
@@ -25,6 +25,10 @@ def index():
         title="Home",
         user = user,
         posts = posts)
+
+@app.route('/about')
+def about():
+    return render_template("about.html")
 
 # @app.route('/login', methods=['GET', 'POST'])
 # def login():
