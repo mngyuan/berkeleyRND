@@ -79,6 +79,11 @@ b {
   padding: 10px 50px;
 }
 
+#centerblock {
+  width: 75%;
+  margin: 0 auto 0 auto;
+}
+
 /* Wrapper for page content to push down footer */
 #wrap {
   min-height: 100%;
