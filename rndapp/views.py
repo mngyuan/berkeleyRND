@@ -4,6 +4,7 @@ from rndapp import app
 from flask import render_template, flash, redirect, request
 # from forms import LoginForm
 
+from random import choice
 
 @app.route('/')
 @app.route('/home')
@@ -29,6 +30,12 @@ def index():
 @app.route('/about')
 def about():
     return render_template("about.html")
+
+@app.errorhandler(404)
+def page_not_found(e):
+    msgs = ['Oops!', 'Doh!', 'Oh no!', 'Aw shucks.', 'Golly.']
+    return render_template("404.html", 
+        msg=choice(msgs)), 404
 
 # @app.route('/login', methods=['GET', 'POST'])
 # def login():
