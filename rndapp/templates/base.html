@@ -38,7 +38,7 @@
       </button>
       <a class="navbar-brand" href="/">R&amp;D at Berkeley</a>
       <div class="nav-collapse collapse">
-        <ul class="nav navbar-nav">
+        <ul class="nav navbar-nav pull-right">
           <li {% if request.path == "/" or request.path == "/home" %}class="active" {% endif %}><a href="home">home</a></li>
           <li {% if request.path == "/about" %}class="active"{% endif %}><a href="about">about</a></li>
           <li><a href="#contact">blog</a></li>
@@ -56,11 +56,11 @@
             </ul>
           </li>
         </ul>
-        <ul class="nav navbar-nav pull-right">
+        <!--<ul class="nav navbar-nav pull-right">
           <li class="active"><a href="/navbar/">Default</a></li>
           <li><a href="/navbar-static-top/">Static top</a></li>
           <li><a href="/navbar-fixed-top/">Fixed top</a></li>
-        </ul>
+        </ul>-->
       </div><!--/.nav-collapse -->
     </div>
   </div>

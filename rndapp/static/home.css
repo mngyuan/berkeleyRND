@@ -40,12 +40,13 @@ b {
 }
 
 #intro, #second, #third, #fourth{
-  height: 550px;
+  height: 600px;
   width: 100%;
   color: white;
   margin: 0 auto 0 auto;
   overflow: hidden;
   padding: 0;
+  background-size: 100% 100%;
 }
 
 #intro {
