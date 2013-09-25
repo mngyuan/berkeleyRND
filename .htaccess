@@ -1,5 +1,5 @@
 RewriteEngine On
 RewriteBase /
 RewriteCond %{REQUEST_FILENAME} !-f
-RewriteRule ^(.*)$ /~rnd/rndflask/run.fcgi/$1 [QSA,L]
+RewriteRule ^(.*)$ /run.fcgi/$1 [QSA,L]
 
