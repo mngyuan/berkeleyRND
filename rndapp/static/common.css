@@ -29,6 +29,10 @@ b {
   font-style: normal;
 }
 
+.green {
+  color: #37b34a;
+}
+
 .navbar {
   margin-bottom: 0px;
   background-color: #333333;
