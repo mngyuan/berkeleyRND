@@ -7,6 +7,8 @@ DEPLOYMENT INSTRUCTIONS
 3.  ssh into rnd at ocf
         ssh rnd@ssh.ocf.berkeley.edu
 4.  update website repo
+    note that while on master, people can see master.
+    
         git checkout master
         git pull
         git checkout <version name>
