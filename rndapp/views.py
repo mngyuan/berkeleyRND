@@ -7,7 +7,14 @@ from flask import render_template, flash, redirect, request
 from random import choice
 
 @app.route('/')
-@app.route('/home')
+@app.route('/home') # PUT THIS DOWN AT INDEX WHEN ROLLING OUT
+# normally would go with route /home,
+# but let's make a placeholder page.
+
+def comingsoon():
+    return render_template("comingsoon.html")
+
+@app.route('/notyet')
 def index():
     #placeholder vars
     user = {'nickname': 'Kevin'}

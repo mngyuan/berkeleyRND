@@ -34,17 +34,20 @@ b {
 }
 
 .navbar {
-  margin-bottom: 0px;
+  /*margin-bottom: 0px; looks shit with fixed */
   background-color: #333333;
   border-radius: 0px;
 }
 
+/* remaking the colors and stuffs */
 .navbar-nav>.active>a {
   background-color: #333333;
 }
 .navbar-nav>li>a {
   transition: 0.2s;
   font-weight: 500;
+  padding-bottom: 10px;
+  padding-top: 10px;
 }
 .navbar-nav>li>a:hover {
   color: white;
@@ -72,6 +75,14 @@ b {
   padding-left: 7%;
 }
 
+/* navbar padding fix */
+.navbar-brand {
+  padding-bottom: 0;
+}
+.navbar {
+  min-height: 40px;
+}
+
 /* for the main content */
 #rcontent {
   width: 100%;
@@ -85,7 +96,24 @@ b {
 
 #centerblock {
   width: 70%;
-  margin: 0 auto 0 auto;
+  /* fix that navbar in */
+  margin: 70px auto 0 auto;
+}
+
+.tabled {
+  display: table;
+  height: 600px;
+}
+
+.tablec {
+  /* vertically center in a table */
+  display: table-cell;
+  vertical-align: middle;
+}
+
+.tleft {
+  font-size: 2em;
+  text-align: left;
 }
 
 /* Wrapper for page content to push down footer */
