@@ -1,5 +1,15 @@
 DEPLOYMENT INSTRUCTIONS
 
-1. Set DEBUG in config.py to be False !!IMPORTANT!!
-2. Commit and push changes to repo
-3. Upload project directory to public_html on ssh.ocf.berkeley.edu
+1.  !!IMPORTANT!! Set 
+        DEBUG = False
+    in config.py
+2.  Commit and push changes to repo
+3.  ssh into rnd at ocf
+        ssh rnd@ssh.ocf.berkeley.edu
+4.  update website repo
+        git checkout master
+        git pull
+        git checkout <version name>
+        git pull
+5.  check rnd.berkeley.edu to see if changes are there.
+    make sure the branch is the correct version
