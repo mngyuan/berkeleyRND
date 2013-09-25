@@ -25,7 +25,7 @@
 
 {% block content %}
 
-<div id="intro">
+<div id="intro" style="background: url({{ url_for('static', filename='images/blackbackground.svg') }}) no-repeat fixed; background-size: 100%;">
   <div class="story">
     <div class="center">
       <img src="{{ url_for('static', filename='images/logo dark.svg') }}" style="height: 400px; width: auto;">
@@ -36,19 +36,19 @@
   </div>
 </div>
 
-<div id="second" style="">
+<div id="second" style="background: url({{ url_for('static', filename='images/greenbackground.svg') }}) no-repeat fixed; background-size: 100%;">
     <div class="container">
         <div class="row">
-        <div class="story" style="margin: 0; width:100%">
-          <div class="col-sm-5 tabled">
-            <div class="tablec"><img src="{{ url_for('static', filename='images/flat cloc.svg') }}" style="height: 250px; width: auto; float: right;"></div>
-          </div>
-          <div class="col-sm-7 tabled">
-            <div class="tablec tleft" style="padding-right: 25px;">
-              <p class="title">Coming soon!</p>
-              <p>Come back later in the school year to find out more about who we are and what we do.</p>
+          <div class="story" style="margin: 0; width:100%">
+            <div class="col-sm-5 tabled">
+              <div class="tablec"><img src="{{ url_for('static', filename='images/flat cloc.svg') }}" style="height: 300px; width: auto; float: right;"></div>
             </div>
-        </div>
+            <div class="col-sm-7 tabled">
+              <div class="tablec tleft" style="padding-right: 25px;">
+                <p class="title">Coming soon!</p>
+                <p>Come back later in the school year to find out more about who we are and what we do.</p>
+              </div>
+          </div>
         </div>
     </div>
   </div>
