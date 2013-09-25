@@ -34,7 +34,7 @@ def index():
         user = user,
         posts = posts)
 
-@app.route('/about')
+#@app.route('/about')
 def about():
     return render_template("about.html")
 
