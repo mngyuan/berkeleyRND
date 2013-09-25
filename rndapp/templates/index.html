@@ -9,10 +9,6 @@
   $(document).ready(function(){
     $('#nav').localScroll(800);
     
-    //.parallax(xPosition, speedFactor, outerHeight) options:
-    //xPosition - Horizontal position of the element
-    //inertia - speed to move relative to vertical scroll. Example: 0.1 is one tenth the speed of scrolling, 2 is twice the speed of scrolling
-    //outerHeight (true/false) - Whether or not jQuery should use it's outerHeight option to determine when a section is in the viewport
     $('#intro').parallax("50%", 0.02);
     $('#second').parallax("50%", 0.02);
     $('.bg').parallax("50%", 0.4);
@@ -25,21 +21,9 @@
 
 
 
-<!--{% block textcontent %}
-      <div class="page-header">
-        <h1>Berkeley RND</h1>
-        <p>We're makers, do-ers, tinker-ers, whatever you want to call it, and I'm coding way too late at night to be writing lorem ipsums.</p>
-      </div>
-{% endblock %}-->
-
-
-
 
 
 {% block content %}
-<!--<h1>Hulloh, {{user.nickname}}!</h1>-->
-{% for post in posts %}
-<!--<div><p>{{post.author.nickname}} says: <b>{{post.body}}</b></p></div>-->
 {% endfor %}
 
 
