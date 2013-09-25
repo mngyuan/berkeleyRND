@@ -135,6 +135,11 @@ b {
   background-color: #333333;
 }
 
+/* fix that text in the footer */
+.padtop {
+  padding-top: 12px;
+}
+
 /* Lastly, apply responsive CSS fixes as necessary */
 @media (max-width: 767px) {
   #footer {
