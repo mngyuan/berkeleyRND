@@ -6,7 +6,7 @@
   <meta name="description" content="">
   <meta name="author" content="">
 
-  <title>Berkeley Research and Development</title>
+  <title>{% if title %}{{title}}{% else %}Research &amp; Development at Berkeley{% endif %}</title>
 
   <link rel="shortcut icon" href="{{ url_for('static', filename='images/favicon.ico') }}">
 
