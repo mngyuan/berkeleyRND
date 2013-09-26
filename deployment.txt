@@ -1,8 +1,11 @@
 DEPLOYMENT INSTRUCTIONS
 
-1.  !!IMPORTANT!! Set 
+1.  a. !!IMPORTANT!! Set 
         DEBUG = False
     in config.py
+    b. delete comments out of code
+    c. delete unusable navbar pieces
+    d. remove endpt code for unreachable endpts 
 2.  Commit and push changes to repo
 3.  ssh into rnd at ocf
         ssh rnd@ssh.ocf.berkeley.edu
