@@ -40,7 +40,7 @@ def about():
 
 @app.errorhandler(404)
 def page_not_found(e):
-    msgs = ['Oops!', 'Doh!', 'Oh no!', 'Aw shucks.', 'Golly.']
+    msgs = ['Oops!', 'Doh!', 'Oh no!', 'Aw shucks.', 'Golly.', 'Damn']
     return render_template("404.html", 
         msg=choice(msgs)), 404
 
