@@ -15,6 +15,7 @@ DEPLOYMENT INSTRUCTIONS
     
         git checkout master
         git pull
+        git checkout --track origin/coming-soon-1.03a-deploy
         git checkout <version name>
         git pull
 5.  check rnd.berkeley.edu to see if changes are there.
