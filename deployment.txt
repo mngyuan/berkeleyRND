@@ -3,6 +3,7 @@ DEPLOYMENT INSTRUCTIONS
 1.  a. !!IMPORTANT!! Set 
         DEBUG = False
     in config.py
+        ANALYTICS = True
     b. delete comments out of code
     c. delete unusable navbar pieces
     d. remove endpt code for unreachable endpts 

@@ -4,6 +4,9 @@ from rndapp import app
 from flask import render_template, flash, redirect, request
 # from forms import LoginForm
 
+from config import ANALYTICS
+app.config['ANALYTICS'] = ANALYTICS
+
 from random import choice
 
 @app.route('/')
