@@ -46,10 +46,11 @@
 
 #intro {
   height: 700px;
-  background: #4d4d4d;
-  background-attachment: fixed;
+  background: url(images/blackbackground.svg) 50% 0 no-repeat fixed; 
+  background-color: #4d4d4d;
+  /*background-attachment: fixed;
   background-position: 50% 0px;
-  background-repeat: no-repeat no-repeat;
+  background-repeat: no-repeat no-repeat;*/
 }
 
 #second {
