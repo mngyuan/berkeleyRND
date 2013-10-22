@@ -6,15 +6,17 @@ from flask import render_template, flash, redirect, request
 
 from random import choice
 
-@app.route('/')
-@app.route('/home') # PUT THIS DOWN AT INDEX WHEN ROLLING OUT
+# PUT THIS DOWN AT INDEX WHEN ROLLING OUT/TAKING
+# COMING SOON DOWN
 # normally would go with route /home,
 # but let's make a placeholder page.
+@app.route('/')
+@app.route('/home')
 
 def comingsoon():
     return render_template("comingsoon.html")
 
-@app.route('/notyet')
+#@app.route('/notyet')
 def index():
     #placeholder vars
     user = {'nickname': 'Kevin'}
@@ -34,7 +36,7 @@ def index():
         user = user,
         posts = posts)
 
-@app.route('/about')
+# @app.route('/about')
 def about():
     return render_template("about.html")
 
