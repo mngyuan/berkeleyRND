@@ -1,0 +1,181 @@
+/* Sticky footer styles
+-------------------------------------------------- */
+
+html,
+body {
+  height: 100%;
+  /* The html and body elements cannot have any padding or margin. */
+}
+
+/* agoracustom */
+p {
+  font-family: 'Roboto Slab', 'Helvetica Neue', sans-serif;
+  font-weight: 200;
+  font-size:0.8em;
+}
+
+p.title {
+  font-weight: 300;
+  font-size:2em;
+  margin-bottom: -10px;
+}
+
+p.text {
+  font-size: 1em;
+}
+
+b {
+  font-weight: 300;
+  font-style: normal;
+}
+
+hr {
+  border-color: #AAAAAA;
+}
+
+.green {
+  color: #37b34a;
+}
+
+.navbar {
+  /*margin-bottom: 0px; looks shit with fixed */
+  background-color: #efefef;
+  border-radius: 0px;
+  /*border-bottom: 10px #f2f2f2 solid;*/
+}
+
+/* remaking the colors and stuffs */
+.navbar-nav>.active>a {
+  background-color: #f5f5f5;
+}
+.navbar-nav>li>a {
+  transition: 0.2s;
+  font-weight: 500;
+  padding-bottom: 10px;
+  padding-top: 10px;
+}
+.navbar-nav>li>a:hover {
+  color: white;
+  background-color: #AAAAAA;
+}
+.navbar-nav>li.active>a {
+  color: #37b34a;
+  /*border-bottom: 5px solid #37b34a;*/
+}.navbar-nav>li.active>a:hover {
+  background-color: #37b34a;
+  color: white;
+}
+
+.dropdown-menu {
+  background: #333333;
+  color: white;
+}
+.dropdown-menu>li>a {
+  color: #777;
+}
+.dropdown-menu>li>a:hover {
+  background-color: #37b34a;
+  background-image: none;
+}
+.dropdown-menu>.nav-header {
+  padding-left: 7%;
+}
+
+/* navbar padding fix */
+.navbar-brand {
+  padding-bottom: 0;
+  padding-top:10px;
+}
+.navbar {
+  min-height: 40px;
+}
+
+/* for the main content */
+#rcontent {
+  width: 100%;
+  height: 100%;
+  color: #555555;
+  margin: 0 auto 0 auto;
+  overflow: hidden;
+  background: #f5f5f5;
+  padding: 10px 50px;
+}
+
+#centerblock {
+  width: 70%;
+  /* fix that navbar in */
+  margin: 70px auto 0 auto;
+}
+
+.tabled {
+  display: table;
+  height: 600px;
+}
+
+.tablec {
+  /* vertically center in a table */
+  display: table-cell;
+  vertical-align: middle;
+}
+
+.tleft {
+  font-size: 2em;
+  text-align: left;
+}
+
+/* Wrapper for page content to push down footer */
+#wrap {
+  min-height: 100%;
+  height: auto !important;
+  height: 100%;
+  /* Negative indent footer by its height */
+  margin: 0 auto -60px;
+  /* Pad bottom by footer height */
+  padding: 0 0 60px;
+}
+
+/* Set the fixed height of the footer here */
+#footer {
+  /*height: 60px;
+  background-color: #f5f5f5;*/
+  height: 40px;
+  background-color: #f5f5f5;
+}
+
+/* fix that text in the footer */
+.padtop {
+  padding-top: 12px;
+}
+
+/* Lastly, apply responsive CSS fixes as necessary */
+@media (max-width: 767px) {
+  #footer {
+    margin-left: -20px;
+    margin-right: -20px;
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+}
+
+h1 {
+  font-family: 'Roboto Slab', 'Helvetica Neue', sans-serif;
+  font-weight: 200;
+}
+
+
+
+/* Custom page CSS
+-------------------------------------------------- */
+/* Not required for template or sticky footer method. */
+
+#wrap > .container {
+  padding: 60px 15px 0;
+}
+.container .credit {
+  /*margin: 20px 0;*/
+  margin: 0 0;
+}
+
+code {
+  font-size: 80%;
+}
