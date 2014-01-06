@@ -40,9 +40,14 @@ def index():
 @app.route('/about')
 def about():
     return render_template("about.html")
+
 @app.route('/projects')
-def about():
+def projects():
     return render_template("projects.html")
+
+@app.route('/events')
+def events():
+    return render_template("events.html")
 
 @app.errorhandler(404)
 def page_not_found(e):
