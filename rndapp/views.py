@@ -49,6 +49,10 @@ def projects():
 def events():
     return render_template("events.html")
 
+@app.route('/news')
+def news():
+    return render_template("news.html")
+
 @app.errorhandler(404)
 def page_not_found(e):
     msgs = ['Oops!', 'Doh!', 'Oh no!', 'Aw shucks.', 'Golly.', 'Damn']
