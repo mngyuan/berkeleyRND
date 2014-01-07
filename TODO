@@ -4,3 +4,4 @@
 [ ] user account db
 [ ] load projects list from db
 [ ] add new projects to db from frontend
+[ ] seriously rehaul CSS and rethink templating
