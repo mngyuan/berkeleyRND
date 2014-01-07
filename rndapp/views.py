@@ -78,7 +78,7 @@ def register():
 @app.route('/login', methods=['GET', 'POST'])
 def login():
     loginform = LoginForm()
-    if loginform.validate_on_submit():
+    if request.method == 'POST' and loginform.validate():
         # flash('Login requested for OpenID="' + loginform.openid.data + '", remember_me=' + str(loginform.remember_me.data))
         # return redirect('/index')
         login_user(user)

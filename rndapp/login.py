@@ -10,11 +10,11 @@ class LoginForm(Form):
 	password = PasswordField([validators.Required()])
 
 	def get_user(self):
-		return db.session.query(User).filter_by(login=self.login.data).first()
+		return db.session.query(User).filter_by(loginuname=self.login.data).first()
 
 	def validate_login(self, field):
-		# hold on when the hell and how does this get called?
-		# its not documented as a special func...
+		# i believe this is called when form.validate is called
+		# but. need to verify these functions ever get called.
 		user = self.get_user()
 
 		if user is None:
