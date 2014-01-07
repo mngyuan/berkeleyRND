@@ -1,7 +1,11 @@
 {% extends "base.html" %}
 {% block content %}
-<form method="POST" action="/login">
-  <div>{{ form.login.label }}: {{ form.login(class="") }}</div>
-  <div>{{ form.password.label }}: {{ form.password(class="") }}</div>
-</form>
+<div id="rcontent">
+  <div id="centerblock">
+    <form method="POST" action="/login">
+      <div>{{ form.login.label }}: {{ form.login(class="") }}</div>
+      <div>{{ form.password.label }}: {{ form.password(class="") }}</div>
+    </form>
+  </div>
+</div>
 {% endblock %}

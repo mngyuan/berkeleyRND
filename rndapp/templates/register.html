@@ -1,11 +1,15 @@
 {% extends "base.html" %}
 {% block content %}
-<form method="POST" action="/register">
-  <div>{{ form.login.label }}: {{ form.login(class="") }}</div>
-  <div>{{ form.password.label }}: {{ form.password(class="") }}</div>
-  <div>{{ form.confirmpw.label }}: {{ form.confirmpw(class="") }}</div>
-  <div>{{ form.firstname.label }}: {{ form.firstname(class="") }}</div>
-  <div>{{ form.lastname.label }}: {{ form.lastname(class="") }}</div>
-  <div>{{ form.email.label }}: {{ form.email(class="") }}</div>
-</form>
+<div id="rcontent">
+  <div id="centerblock">
+    <form method="POST" action="/register">
+      <div>{{ form.login.label }}: {{ form.login(class="") }}</div>
+      <div>{{ form.password.label }}: {{ form.password(class="") }}</div>
+      <div>{{ form.confirmpw.label }}: {{ form.confirmpw(class="") }}</div>
+      <div>{{ form.firstname.label }}: {{ form.firstname(class="") }}</div>
+      <div>{{ form.lastname.label }}: {{ form.lastname(class="") }}</div>
+      <div>{{ form.email.label }}: {{ form.email(class="") }}</div>
+    </form>
+  </div>
+</div>
 {% endblock %}

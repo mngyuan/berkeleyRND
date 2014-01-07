@@ -23,8 +23,11 @@ app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:////' + app.config['DATABASE_LOC
 app.config['SQLALCHEMY_ECHO'] = True # logs stderr
 db = SQLAlchemy(app)
 
+# TODO: these functions probably need to be replaced;
+# it's not direct sqlite3 connections now but
+# SQLAlchemy handled sqlite
 def connect_db():
-    return sqlite3.connect(app.config(['DATABASE']))
+    return sqlite3.connect(app.config['DATABASE_LOC'])
 
 # initializes the db, as in deletes everything
 # and makes bare tables
