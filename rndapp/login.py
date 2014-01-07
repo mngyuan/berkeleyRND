@@ -31,11 +31,10 @@ class RegistrationForm(Form):
 	confirmpw = PasswordField('Repeat password')
 	firstname = TextField()
 	lastname = TextField()
-
-	email = TextField([validators.Required(), validators.Email()])
+	email = TextField('berkeley.edu email', [validators.Required(), validators.Email()])
 
 	def validate_login(self, field):
-		if db.session.query(User).filter_by(login=self.login.data).count() > 0:
+		if db.session.query(User).filter_by(loginuname=self.login.data).count() > 0:
 			raise validators.ValidationError('Username in use!')
 
 		# TODO: also need to validate berkeley.edu
