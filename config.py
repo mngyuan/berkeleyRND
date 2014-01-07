@@ -14,6 +14,7 @@ SECRET_KEY = 'c0a3a867444f3b764642727099c2b721'
 #     { 'name': 'MyOpenID', 'url': 'https://www.myopenid.com' }]
 
 # db config
-DATABASE = "/tmp/rnd.db"
+DATABASE_LOC = "db/rnd.sqlite"
+
 USERNAME = "admin"
 PASSWORD = "default"

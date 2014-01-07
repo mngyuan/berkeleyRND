@@ -10,11 +10,15 @@ from flask import Flask, request, session, g, redirect, url_for, \
 import config
 
 # startup
-# this will also load config.py down the line
+# this will also load config.py
 from rndapp import app
 
 
 #DB FUNCTIONALITY
+app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:////' + app.config['DATABASE_LOC']
+app.config['SQLALCHEMY_ECHO'] = True # logs stderr
+db = SQLAlchemy(app)
+
 def connect_db():
     return sqlite3.connect(app.config(['DATABASE']))
 
@@ -48,7 +52,8 @@ login_manager.init_app(app)
 @login_manager.user_loader
 def load_user(uid):
 	# returns None on invalid user
-	return User.get(userid)
+	# return User.get(userid)
+	return db.session.query(User).get(uid) # this seems gross. use above line and put in User model?
 
 
 app.run(debug = config.DEBUG)
