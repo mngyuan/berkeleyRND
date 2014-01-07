@@ -64,6 +64,17 @@ def page_not_found(e):
     
 
 # user specific pages
+@app.route('/register', methods=['GET', 'POST'])
+def register():
+    form = RegistrationForm(request.form)
+    if request.method == 'POST' and form.validate():
+        # TODO: this constructor call is fake; update when User has a real constructor
+        user = User(form.loginuname.data, form.email.data, form.password.data)
+        db_session.add(user)
+        flash('Thank you for registering')
+        return redirect(url_for('login'))
+    return render_template('register.html', form=form)
+
 @app.route('/login', methods=['GET', 'POST'])
 def login():
     loginform = LoginForm()
@@ -84,7 +95,6 @@ def login():
 def logout():
     logout_user()
     return redirect(url_for("home"))
-
 
 @app.route('/settings')
 @login_required

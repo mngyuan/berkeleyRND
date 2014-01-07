@@ -12,7 +12,8 @@ class LoginForm(Form):
 		return db.session.query(User).filter_by(login=self.login.data).first()
 
 	def validate_login(self, field):
-		# called upon a login attempt
+		# hold on when the hell and how does this get called?
+		# its not documented as a special func...
 		user = self.get_user()
 
 		if user is None:
@@ -21,7 +22,7 @@ class LoginForm(Form):
 			raise validators.ValidationError('Invalid password!')
 
 class RegistrationForm(Form):
-	loginuname = TextField('Username', [validators.Required()])
+	login = TextField('Username', [validators.Required()])
 	password = PasswordField('Password', [
 		validators.Required(),
 		validators.EqualTo('confirm', message='Passwords must match')
@@ -49,6 +50,11 @@ class User(db.Model):
 	email = db.Column(db.String(120))
 	# TODO: password salts, password hashing.
 	password = db.Column(db.String(64))
+
+	def __init__(self):
+		# registering makes new user objects
+		# TODO: this should do seomthing.
+		pass
 
 	# Flask-Login
 	def is_authenticated(self):
