@@ -83,7 +83,7 @@ def login():
         # return redirect('/index')
         login_user(user)
         flash("Logged in successfully.")
-        return redirect(request.args.get("next") or url_for("home")
+        return redirect(request.args.get("next") or url_for("home"))
     return render_template("login.html", form=loginform)
 
     # return render_template("login.html",
