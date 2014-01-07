@@ -1,4 +1,5 @@
 from wtforms import Form, TextField, PasswordField, validators
+from rndapp import db
 
 # class LoginForm(Form):
 #     openid = TextField('openid', validators = [Required()])

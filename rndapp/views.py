@@ -2,12 +2,12 @@
 
 from rndapp import app
 from flask import render_template, flash, redirect, request
-from login import LoginForm
-
+from login import LoginForm, RegistrationForm
 from config import ANALYTICS
 app.config['ANALYTICS'] = ANALYTICS #wait is this neccessary
-
 from random import choice
+
+from flask.ext.login import login_required
 
 @app.route('/')
 @app.route('/home') # PUT THIS DOWN AT INDEX WHEN ROLLING OUT

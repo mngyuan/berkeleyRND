@@ -9,6 +9,9 @@ from flask import Flask, request, session, g, redirect, url_for, \
 
 # g is application globals: flask.g can have any application global
 # stored on it. we will store db connection info.
+from flask.ext.sqlalchemy import SQLAlchemy
+from flask.ext import login
+
 
 # init setup
 
@@ -47,7 +50,7 @@ def teardown_request(exception):
 
 # Login management
 
-login_manager = LoginManager()
+login_manager = login.LoginManager()
 login_manager.init_app(app)
 
 @login_manager.user_loader
