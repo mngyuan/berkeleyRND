@@ -1,10 +1,15 @@
 {% extends "base.html" %}
+{% from "_formhelper.html" import render_field %}
+
 {% block content %}
 <div id="rcontent">
   <div id="centerblock">
     <form method="POST" action="/login">
-      <div>{{ form.login.label }}: {{ form.login(class="") }}</div>
-      <div>{{ form.password.label }}: {{ form.password(class="") }}</div>
+      <dl>
+        {{ render_field(form.login) }}
+        {{ render_field(form.password) }}
+      </dl>
+      <p><input type="submit" value="Register">
     </form>
   </div>
 </div>
