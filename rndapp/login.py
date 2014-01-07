@@ -6,8 +6,8 @@ from rndapp import db
 #     remember_me = BooleanField('remember_me', default=False)
 
 class LoginForm(Form):
-	login = TextField([validators.Required()])
-	password = PasswordField([validators.Required()])
+	login = TextField('Username', [validators.Required()])
+	password = PasswordField('Password', [validators.Required()])
 
 	def get_user(self):
 		return db.session.query(User).filter_by(loginuname=self.login.data).first()
