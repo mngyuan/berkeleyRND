@@ -2,10 +2,10 @@
 
 from rndapp import app
 from flask import render_template, flash, redirect, request
-# from forms import LoginForm
+from login import LoginForm
 
 from config import ANALYTICS
-app.config['ANALYTICS'] = ANALYTICS
+app.config['ANALYTICS'] = ANALYTICS #wait is this neccessary
 
 from random import choice
 
@@ -53,20 +53,40 @@ def events():
 def news():
     return render_template("news.html")
 
+
 @app.errorhandler(404)
 def page_not_found(e):
     msgs = ['Oops!', 'Doh!', 'Oh no!', 'Aw shucks.', 'Golly.', 'Damn']
     return render_template("404.html", 
         msg=choice(msgs)), 404
 
-# @app.route('/login', methods=['GET', 'POST'])
-# def login():
-#     loginform = LoginForm()
-#     if loginform.validate_on_submit():
-#         flash('Login requested for OpenID="' + loginform.openid.data + '", remember_me=' + str(loginform.remember_me.data))
-#         return redirect('/index')
 
-#     return render_template("login.html",
-#         title="Log in", form=loginform,
-#         providers = app.config['OPENID_PROVIDERS'])
     
+
+# user specific pages
+@app.route('/login', methods=['GET', 'POST'])
+def login():
+    loginform = LoginForm()
+    if loginform.validate_on_submit():
+        # flash('Login requested for OpenID="' + loginform.openid.data + '", remember_me=' + str(loginform.remember_me.data))
+        # return redirect('/index')
+        login_user(user)
+        flash("Logged in successfully.")
+        return redirect(request.args.get("next") or url_for("home")
+    return render_template("login.html", form=loginform)
+
+    # return render_template("login.html",
+    #     title="Log in", form=loginform,
+    #     providers = app.config['OPENID_PROVIDERS'])
+
+@app.route("/logout")
+@login_required
+def logout():
+    logout_user()
+    return redirect(url_for("home"))
+
+
+@app.route('/settings')
+@login_required
+def settings():
+    pass
