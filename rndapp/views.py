@@ -67,7 +67,8 @@ def page_not_found(e):
 @app.route('/register', methods=['GET', 'POST'])
 def register():
     form = RegistrationForm(request.form)
-    if request.method == 'POST' and form.validate():
+    # if request.method == 'POST' and form.validate():
+    if form.validate_on_submit():
         # TODO: this constructor call is fake; update when User has a real constructor
         user = User(form.loginuname.data, form.email.data, form.password.data)
         db_session.add(user)
@@ -78,7 +79,8 @@ def register():
 @app.route('/login', methods=['GET', 'POST'])
 def login():
     loginform = LoginForm()
-    if request.method == 'POST' and loginform.validate():
+    # if request.method == 'POST' and loginform.validate():
+    if form.validate_on_submit():
         # flash('Login requested for OpenID="' + loginform.openid.data + '", remember_me=' + str(loginform.remember_me.data))
         # return redirect('/index')
         login_user(user)
