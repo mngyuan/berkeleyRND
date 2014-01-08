@@ -2,19 +2,15 @@
 {% from "_formhelper.html" import render_field %}
 
 {% block content %}
-<div id="rcontent">
-  <div id="centerblock">
-    <form method="POST" action="/register">
-      <dl>
-        {{ render_field(form.login) }}
-        {{ render_field(form.password) }}
-        {{ render_field(form.confirmpw) }}
-        {{ render_field(form.firstname) }}
-        {{ render_field(form.lastname) }}
-        {{ render_field(form.email) }}
-      </dl>
-      <p><input type="submit" value="Register">
-    </form>
-  </div>
-</div>
+<form method="POST" action="/register">
+  <dl>
+    {{ render_field(form.login) }}
+    {{ render_field(form.password) }}
+    {{ render_field(form.confirmpw) }}
+    {{ render_field(form.firstname) }}
+    {{ render_field(form.lastname) }}
+    {{ render_field(form.email) }}
+  </dl>
+  <p><input type="submit" value="Register">
+</form>
 {% endblock %}

@@ -98,7 +98,12 @@
     {% block textcontent %}{% endblock %}
   </div>
   -->
-  {% block content %}{% endblock %}
+  {% block outcontent %}{% endblock %} <!-- when we need more customized control over page layout -->
+  <div id="rcontent">
+    <div id="centerblock">
+      {% block content %}{% endblock %} <!-- when we dont need precise control and just need to put content in -->
+    </div>
+  </div>
 
   
 
