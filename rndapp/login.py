@@ -1,4 +1,5 @@
 from wtforms import Form, TextField, PasswordField, validators
+from werkzeug.security import generate_password_hash, check_password_hash
 from rndapp import db
 
 # class LoginForm(Form):
@@ -74,3 +75,10 @@ class User(db.Model):
 
 	def __repr__(self):
 		return "<USER %r>"%(self.loginuname)
+
+	# TODO integrate this
+	def set_password(self, pw):
+		self.pw_hash = generate_password_hash(pw)
+
+	def check_password(self, pw):
+		return check_password_hash(self.pw_hash, pw)
