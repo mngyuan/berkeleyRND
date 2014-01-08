@@ -17,10 +17,7 @@ from flask.ext import login
 
 app = Flask(__name__)
 app.config.from_object('config')
-
 # setup DB
-app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:////' + app.config['DATABASE_LOC']
-app.config['SQLALCHEMY_ECHO'] = True # logs stderr
 db = SQLAlchemy(app)
 
 # TODO: these functions probably need to be replaced;
