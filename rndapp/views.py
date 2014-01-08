@@ -14,7 +14,8 @@ from flask.ext.login import login_required
 # but let's make a placeholder page.
 
 def comingsoon():
-    return render_template("comingsoon.html")
+    return render_template("comingsoon.html",
+        surpress_rcontent=True)
 
 @app.route('/notyet')
 def index():
@@ -34,7 +35,8 @@ def index():
     return render_template("index.html",
         title="Home",
         user = user,
-        posts = posts)
+        posts = posts,
+        surpress_rcontent=True)
 
 @app.route('/about')
 def about():
