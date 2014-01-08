@@ -2,10 +2,9 @@
 
 from rndapp import app
 from flask import render_template, flash, redirect, request
-from login import LoginForm, RegistrationForm
-from config import ANALYTICS
-app.config['ANALYTICS'] = ANALYTICS #wait is this neccessary
+from forms import LoginForm, RegistrationForm
 from random import choice
+from models import User
 
 from flask.ext.login import login_required
 
