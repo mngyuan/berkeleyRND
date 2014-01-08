@@ -82,25 +82,18 @@
     </div>
   </div>
 
-  <!--
-  TODO: rethink content location
-  <div class="container">
-    {% with msgs = get_flashed_messages() %}
-    {% if msgs %}
-    <ul>
-      {% for msg in msgs %}
-      <li>{{msg}}</li>
-      {% endfor %}
-    </ul>
-    {% endif %}
-    {% endwith %}
-
-    {% block textcontent %}{% endblock %}
-  </div>
-  -->
   {% block outcontent %}{% endblock %} <!-- when we need more customized control over page layout -->
   <div id="rcontent">
     <div id="centerblock">
+      {% with msgs = get_flashed_messages() %}
+      {% if msgs %}
+      <ul>
+        {% for msg in msgs %}
+        <li>{{msg}}</li>
+        {% endfor %}
+      </ul>
+      {% endif %}
+      {% endwith %}
       {% block content %}{% endblock %} <!-- when we dont need precise control and just need to put content in -->
     </div>
   </div>
