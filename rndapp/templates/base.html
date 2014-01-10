@@ -60,6 +60,13 @@
           <li {% if request.path == "/news" %}class="active"{% endif %}><a href="news">news</a></li>
           <li {% if request.path == "/projects" %}class="active"{% endif %}><a href="projects">projects</a></li>
           <li {% if request.path == "/events" %}class="active"{% endif %}><a href="events">events</a></li>
+          <li>
+            {% if g.user.is_authenticated() %}
+            <a href="logout">logout</a>
+            {% else %}
+            <a href="login">login</a>
+            {% endif %}
+          </li>
           <!--
           <li><a href="#contact">blog</a></li>
           <li><a href="media">media</a></li>

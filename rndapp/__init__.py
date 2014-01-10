@@ -11,6 +11,7 @@ from flask import Flask, request, session, g, redirect, url_for, \
 # stored on it. we will store db connection info.
 from flask.ext.sqlalchemy import SQLAlchemy
 from flask.ext import login
+from flask.ext.login import current_user
 
 
 # init setup
@@ -18,6 +19,7 @@ from flask.ext import login
 app = Flask(__name__)
 app.config.from_object('config')
 # setup DB
+app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:////tmp/rnd.db' # this needs to be here for some reason.
 db = SQLAlchemy(app)
 
 # TODO: these functions probably need to be replaced;
@@ -39,25 +41,20 @@ def init_db():
 # REQUEST SETUP AND TEARDOWN
 @app.before_request
 def before_request():
-	g.db = connect_db()
-
-@app.teardown_request
-def teardown_request(exception):
-	db = getattr(g, 'db', None)
-	if db is not None:
-		# db was connected. let's disconnect
-		db.close()
+    g.user = current_user # global set up by flask-login
 
 # Login management
 
 login_manager = login.LoginManager()
 login_manager.init_app(app)
+login_manager.login_view = 'login'
 
 @login_manager.user_loader
 def load_user(uid):
-	# returns None on invalid user
-	# return User.get(userid)
-	return db.session.query(User).get(uid) # this seems gross. use above line and put in User model?
+    # returns None on invalid user
+    # return User.get(userid)
+    # return db.session.query(User).get(uid) # this seems gross. use above line and put in User model?
+    return User.query.get(int(uid))
 
 
 from rndapp import views

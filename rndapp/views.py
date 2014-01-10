@@ -1,12 +1,13 @@
 # what each page will look like
 
 from rndapp import app
-from flask import render_template, flash, redirect, request
+from flask import render_template, flash, redirect, request, g, url_for
 from forms import LoginForm, RegistrationForm
 from random import choice
 from models import User
 
-from flask.ext.login import login_required
+from flask.ext.login import login_required, login_user, \
+    logout_user, fresh_login_required
 
 @app.route('/')
 @app.route('/home') # PUT THIS DOWN AT INDEX WHEN ROLLING OUT
@@ -68,11 +69,10 @@ def page_not_found(e):
 @app.route('/register', methods=['GET', 'POST'])
 def register():
     form = RegistrationForm(request.form)
-    # if request.method == 'POST' and form.validate():
-    if form.validate_on_submit():
+    if request.method == 'POST' and form.validate():
         # TODO: this constructor call is fake; update when User has a real constructor
-        user = User(form.loginuname.data, form.email.data, form.password.data)
-        db_session.add(user)
+        user = User(form.loginuname.data, form.password.data, form.firstname, form.lastname, form.email.data)
+        g.user = user # used to be db_session.add(user), idk why
         flash('Thank you for registering')
         return redirect(url_for('login'))
     return render_template('register.html', form=form)
@@ -80,8 +80,8 @@ def register():
 @app.route('/login', methods=['GET', 'POST'])
 def login():
     loginform = LoginForm()
-    # if request.method == 'POST' and loginform.validate():
-    if form.validate_on_submit():
+    if request.method == 'POST' and loginform.validate():
+    # if loginform.validate_on_submit(): # this way is wrong: v_o_s() no longer exists
         # flash('Login requested for OpenID="' + loginform.openid.data + '", remember_me=' + str(loginform.remember_me.data))
         # return redirect('/index')
         login_user(user)
@@ -100,6 +100,6 @@ def logout():
     return redirect(url_for("home"))
 
 @app.route('/settings')
-@login_required
+@fresh_login_required
 def settings():
     pass

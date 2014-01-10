@@ -1,5 +1,6 @@
 from wtforms import Form, TextField, PasswordField, validators
 from rndapp import db
+from models import User
 
 # class LoginForm(Form):
 #     openid = TextField('openid', validators = [Required()])
@@ -19,14 +20,14 @@ class LoginForm(Form):
 
 		if user is None:
 			raise validators.ValidationError('Invalid user!')
-		if user.password != self.password.data:
+		if not user.check_password(self.password.data):
 			raise validators.ValidationError('Invalid password!')
 
 class RegistrationForm(Form):
-	login = TextField('Username', [validators.Required()])
+	loginuname = TextField('Username', [validators.Required()])
 	password = PasswordField('Password', [
 		validators.Required(),
-		validators.EqualTo('confirm', message='Passwords must match')
+		validators.EqualTo('confirmpw', message='Passwords must match')
 	])
 	confirmpw = PasswordField('Repeat password')
 	firstname = TextField()
