@@ -20,7 +20,7 @@ class User(db.Model):
 		# will anyone really ever read this?
 		# is hilfinger a god or a demon?
 		self.loginuname = login
-		self.pw_hash = self.set_password(password)
+		self.set_password(password)
 		self.first_name = first_name
 		self.last_name = last_name
 		self.email = email
