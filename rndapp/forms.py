@@ -10,19 +10,29 @@ class LoginForm(Form):
 	login = TextField('Username')
 	password = PasswordField('Password')
 
-	def get_user(self):
-		return db.session.query(User).filter_by(loginuname=self.login.data).first()
+	def get_user(self, form):
+		return User.query.filter_by(loginuname=form.login.data).first()
+		# return db.session.query(User).filter_by(loginuname=form.login.data).first()
 
-	def validate_login(self, field):
-		# an "@override" Form.validate() function
-		user = self.get_user()
+	def validate_login(form, field):
+		# this gets run by the validate() chain
+		# HOW? WHY IS THIS FUNCTIONALITY NOT DOCUMENTED? WHELL HERE GOES
+		# VALIDATE() FROM FORM:
+		# RUNS INLINE VALIDATORS BASED ON CLASS ATTR NAMES:
+		#   inline = getattr(self.__class__, 'validate_%s' % name, None)
+		# UGH
+		user = form.get_user(form)
 
-		if user is None:
+		if user is None: # consider consolidating w/ pw check for security
 			raise validators.ValidationError('Invalid user!')
-		if not user.check_password(self.password.data):
-			raise validators.ValidationError('Invalid password!')
+			# self.errors[self.login] = 'Invalid user!'
 
-		return self.validate()
+	def validate_password(form, field):
+		user = self.get_user(self)
+		if user and not user.check_password(field.data):
+			raise validators.ValidationError('Invalid password!')
+			# self.errors[self.password] = 'Invalid password!'
+
 
 class RegistrationForm(Form):
 	loginuname = TextField('Username', [validators.Required()])
@@ -35,10 +45,8 @@ class RegistrationForm(Form):
 	lastname = TextField()
 	email = TextField('berkeley.edu email', [validators.Required(), validators.Email()])
 
-	def validate_login(self, field):
-		if db.session.query(User).filter_by(loginuname=self.login.data).count() > 0:
+	def validate_loginuname(self, field):
+		if db.session.query(User).filter_by(loginuname=self.loginuname.data).count() > 0:
 			raise validators.ValidationError('Username in use!')
-
 		# TODO: also need to validate berkeley.edu
-		return self.validate()
 

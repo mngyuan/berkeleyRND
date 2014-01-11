@@ -68,9 +68,10 @@ def page_not_found(e):
 # user specific pages
 @app.route('/register', methods=['GET', 'POST'])
 def register():
-    form = RegistrationForm(request.form)
-    if request.method == 'POST' and form.validate_login():
-        user = User(form.loginuname.data, form.password.data, form.firstname.data, form.lastname.data, form.email.data)
+    regform = RegistrationForm(request.form)
+    if request.method == 'POST' and regform.validate():
+        user = User(regform.loginuname.data, regform.password.data, \
+            regform.firstname.data, regform.lastname.data, regform.email.data)
         g.user = user
         # add to db
         db.session.add(user)
@@ -78,12 +79,12 @@ def register():
 
         flash('Thank you for registering')
         return redirect(url_for('login'))
-    return render_template('register.html', form=form)
+    return render_template('register.html', form=regform)
 
 @app.route('/login', methods=['GET', 'POST'])
 def login():
     loginform = LoginForm()
-    if request.method == 'POST' and loginform.validate_login():
+    if request.method == 'POST' and loginform.validate():
         # flash('Login requested for OpenID="' + loginform.openid.data + '", remember_me=' + str(loginform.remember_me.data))
         # return redirect('/index')
         login_user(user)
