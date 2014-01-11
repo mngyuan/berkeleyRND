@@ -1,6 +1,6 @@
 # what each page will look like
 
-from rndapp import app
+from rndapp import app, db
 from flask import render_template, flash, redirect, request, g, url_for
 from forms import LoginForm, RegistrationForm
 from random import choice
@@ -69,10 +69,13 @@ def page_not_found(e):
 @app.route('/register', methods=['GET', 'POST'])
 def register():
     form = RegistrationForm(request.form)
-    if request.method == 'POST' and form.validate():
-        # TODO: this constructor call is fake; update when User has a real constructor
-        user = User(form.loginuname.data, form.password.data, form.firstname, form.lastname, form.email.data)
-        g.user = user # used to be db_session.add(user), idk why
+    if request.method == 'POST' and form.validate_login():
+        user = User(form.loginuname.data, form.password.data, form.firstname.data, form.lastname.data, form.email.data)
+        g.user = user
+        # add to db
+        db.session.add(user)
+        db.session.commit()
+
         flash('Thank you for registering')
         return redirect(url_for('login'))
     return render_template('register.html', form=form)
@@ -80,8 +83,7 @@ def register():
 @app.route('/login', methods=['GET', 'POST'])
 def login():
     loginform = LoginForm()
-    if request.method == 'POST' and loginform.validate():
-    # if loginform.validate_on_submit(): # this way is wrong: v_o_s() no longer exists
+    if request.method == 'POST' and loginform.validate_login():
         # flash('Login requested for OpenID="' + loginform.openid.data + '", remember_me=' + str(loginform.remember_me.data))
         # return redirect('/index')
         login_user(user)

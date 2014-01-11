@@ -7,21 +7,22 @@ from models import User
 #     remember_me = BooleanField('remember_me', default=False)
 
 class LoginForm(Form):
-	login = TextField('Username', [validators.Required()])
-	password = PasswordField('Password', [validators.Required()])
+	login = TextField('Username')
+	password = PasswordField('Password')
 
 	def get_user(self):
 		return db.session.query(User).filter_by(loginuname=self.login.data).first()
 
 	def validate_login(self, field):
-		# i believe this is called when form.validate is called
-		# but. need to verify these functions ever get called.
+		# an "@override" Form.validate() function
 		user = self.get_user()
 
 		if user is None:
 			raise validators.ValidationError('Invalid user!')
 		if not user.check_password(self.password.data):
 			raise validators.ValidationError('Invalid password!')
+
+		return self.validate()
 
 class RegistrationForm(Form):
 	loginuname = TextField('Username', [validators.Required()])
@@ -39,4 +40,5 @@ class RegistrationForm(Form):
 			raise validators.ValidationError('Username in use!')
 
 		# TODO: also need to validate berkeley.edu
+		return self.validate()
 
