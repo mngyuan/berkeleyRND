@@ -38,3 +38,4 @@ Open an interactive python2.7 shell in the base directory and run:
 >>> init_db()
 
 THIS WILL ERASE THE CURRENT DATABASE. The repo should have a development database already in it.
+
