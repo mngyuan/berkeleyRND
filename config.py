@@ -1,7 +1,7 @@
 import os
 
-DEBUG = True
-ANALYTICS = False
+DEBUG = False
+ANALYTICS = True
 
 CSRF_ENABLED = True
 SECRET_KEY = 'c0a3a867444f3b764642727099c2b721'
