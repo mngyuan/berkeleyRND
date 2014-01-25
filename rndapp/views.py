@@ -18,7 +18,7 @@ def comingsoon():
     return render_template("comingsoon.html",
         surpress_rcontent=True)
 
-@app.route('/notyet')
+#@app.route('/notyet')
 def index():
     #placeholder vars
     user = {'nickname': 'Kevin'}
@@ -66,7 +66,7 @@ def page_not_found(e):
     
 
 # user specific pages
-@app.route('/register', methods=['GET', 'POST'])
+#@app.route('/register', methods=['GET', 'POST'])
 def register():
     regform = RegistrationForm(request.form)
     if request.method == 'POST' and regform.validate():
@@ -81,7 +81,7 @@ def register():
         return redirect(url_for('login'))
     return render_template('register.html', form=regform)
 
-@app.route('/login', methods=['GET', 'POST'])
+#@app.route('/login', methods=['GET', 'POST'])
 def login():
     loginform = LoginForm()
     if request.method == 'POST' and loginform.validate():
@@ -96,13 +96,13 @@ def login():
     #     title="Log in", form=loginform,
     #     providers = app.config['OPENID_PROVIDERS'])
 
-@app.route("/logout")
+#@app.route("/logout")
 @login_required
 def logout():
     logout_user()
     return redirect(url_for("home"))
 
-@app.route('/settings')
+#@app.route('/settings')
 @fresh_login_required
 def settings():
     pass
