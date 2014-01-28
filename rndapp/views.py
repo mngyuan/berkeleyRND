@@ -17,7 +17,7 @@ from random import choice
 def comingsoon():
     return render_template("comingsoon.html")
 
-@app.route('/notyet')
+# @app.route('/notyet')
 def index():
     #placeholder vars
     user = {'nickname': 'Kevin'}
