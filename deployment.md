@@ -15,6 +15,7 @@ Deploy to Production:
   2. delete comments out of code
   3. delete unusable navbar pieces
   4. remove endpt code for unreachable endpts 
+  5. !!IMPORTANT!! define "key" in secret.py to be the correct key from the master development machine (probably kevin's laptop)
 2.  Commit and push changes to repo
 3.  ssh into rnd at ocf
         ssh rnd@ssh.ocf.berkeley.edu
