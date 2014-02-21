@@ -1,6 +1,7 @@
 # agoraphobiae
 ##############
 venv
+secret.py
 
 *.py[cod]
 
