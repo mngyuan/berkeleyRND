@@ -1,23 +1,7 @@
-import os
-import secret
+from os.path import abspath, dirname, join
 
-DEBUG = True
-ANALYTICS = False
+_cwd = dirname(abspath(__file__))
 
-CSRF_ENABLED = True
-# the md5 of some text i randomly decided
-SECRET_KEY = secret.key
-
-# OPENID_PROVIDERS = [
-#     { 'name': 'Google', 'url': 'https://www.google.com/accounts/o8/id' },
-#     { 'name': 'Yahoo', 'url': 'https://me.yahoo.com' },
-#     { 'name': 'AOL', 'url': 'http://openid.aol.com/<username>' },
-#     { 'name': 'Flickr', 'url': 'http://www.flickr.com/<username>' },
-#     { 'name': 'MyOpenID', 'url': 'https://www.myopenid.com' }]
-
-# db config
-
-# USERNAME = "admin"
-# PASSWORD = "default"
-
-SQLALCHEMY_ECHO = True # logs stderr
+SECRET_KEY = 'SO_RANDOM'
+SQLALCHEMY_DATABASE_URI = 'sqlite:///' + join(_cwd, 'projectdb.db')
+SQLALCHEMY_ECHO = True

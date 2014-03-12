@@ -1,0 +1,10 @@
+{% extends "layout.html" %}
+{% import "helpers/tables.html" as tables %}
+{% block title %}Project:{{ site }}{% endblock %}
+{% block content %}
+{{ super() }}
+<p>Projects</p>
+<table>
+{{ tables.render(visits) }}
+</table>
+{% endblock content %}

@@ -1,7 +1,5 @@
-import config
+from Projects import app, db
 
-# startup
-# this will also load config.py
-from rndapp import app
-
-app.run(debug = config.DEBUG)
+app.debug = True
+db.create_all(app=app)
+app.run()
