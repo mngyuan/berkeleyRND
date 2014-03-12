@@ -3,7 +3,7 @@ from flask.ext.login import current_user, login_required
 
 from .forms import ProjectForm
 from .models import Project
-from Projects.data import query_to_list
+from rndapp.data import query_to_list
 
 application = Blueprint("application", __name__)
 

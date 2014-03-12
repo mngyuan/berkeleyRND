@@ -1,6 +1,6 @@
 from flask.ext.login import AnonymousUserMixin, LoginManager
 
-from Projects.users.models import User
+from rndapp.users.models import User
 
 login_manager = LoginManager()
 

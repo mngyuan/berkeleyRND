@@ -1,4 +1,4 @@
-from Projects.data import CRUDMixin, db
+from rndapp.data import CRUDMixin, db
 
 class Project(CRUDMixin, db.Model):
     __tablename__ = 'project_list'
