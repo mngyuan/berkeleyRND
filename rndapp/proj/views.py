@@ -5,7 +5,10 @@ from .forms import ProjectForm
 from .models import Project
 from rndapp.data import query_to_list
 
+import config
+
 application = Blueprint("application", __name__)
+application.config = config.ANALYTICS
 
 #@application.route("/")
 #@application.route("/home")
