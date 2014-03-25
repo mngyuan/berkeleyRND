@@ -53,6 +53,10 @@
   background-repeat: no-repeat no-repeat;*/
 }
 
+#intro img {
+  width: 40%;
+}
+
 #second {
   background:url(images/hackathon.jpg) 50% 0 no-repeat fixed;
   background-attachment: fixed;
@@ -72,4 +76,10 @@
   background-attachment: fixed;
   background-position: 50% 0px;
   background-repeat: no-repeat no-repeat;
+}
+
+
+/* override white bg for intro page */
+#rcontent {
+  background-color: #333;
 }

@@ -15,7 +15,7 @@ application = Blueprint("application", __name__)
 @application.route("/")
 @application.route("/home")
 def index():
-    return render_template("comingsoon.html")
+    return render_template("comingsoon.html", surpress_rcontent=True)
 
 @application.route('/about')
 def about():

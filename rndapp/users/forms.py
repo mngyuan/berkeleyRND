@@ -8,7 +8,7 @@ from .models import User
 
 class LoginForm(Form):
     email = fields.StringField(validators=[InputRequired(), Email()])
-    password = fields.StringField(validators=[InputRequired()])
+    password = fields.PasswordField(validators=[InputRequired()])
 
     def validate_password(form, field):
         try:
@@ -26,7 +26,7 @@ class LoginForm(Form):
 class RegistrationForm(Form):
     name = fields.StringField("Username")
     email = fields.StringField(validators=[InputRequired(), Email()])
-    password = fields.StringField(validators=[InputRequired()])
+    password = fields.PasswordField(validators=[InputRequired()])
 
     def validate_email(form, field):
         user = User.query.filter(User.email == field.data).first()

@@ -60,14 +60,14 @@
           <!--<li {% if request.path == "/news" %}class="active"{% endif %}><a href="news">news</a></li>-->
           <li {% if request.path == "/projects" %}class="active"{% endif %}><a href="projects">projects</a></li>
           <!--<li {% if request.path == "/events" %}class="active"{% endif %}><a href="events">events</a></li>-->
-          <li>
+          <li {% if request.path == "/register" %}class="active"{% endif %}>
             {% if current_user.is_anonymous() %}
             <a href="{{url_for('users.register')}}">register</a>
             {% else %}
             <a href="#">{{current_user.name}}</a>
             {% endif %}
           </li>
-          <li>
+          <li {% if request.path == "/login" %}class="active"{% endif %}>
             {% if current_user.is_anonymous() %}
             <a href="{{url_for('users.login')}}">log in</a>
             {% else %}
