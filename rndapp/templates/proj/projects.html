@@ -2,6 +2,10 @@
 {% import "helpers/forms.html" as forms %}
 {% import "helpers/tables.html" as tables %}
 
+{% block head %}
+<script src="{{ url_for('static', filename='scripts/proj.js') }}"></script>
+{% endblock %}
+
 {% block content %}
 {{super()}}
 <h1>Projects</h1>
@@ -9,14 +13,18 @@
 <p class="text">Our goal is to help undergraduate students deepen their academic knowledge and use it in a more applicable and hands-on setting in their areas of special interest. Our organization highly encourages students to submit project concepts for their own personal interests and we will work to bring their ideas to life as a club. In addition, if any of the descriptions of the projects in progress interest you, feel free to apply below to join. </p>
 <p class="text">Here is a list of projects currently available. If you would like to submit a project or join one, request to join the club <a href='https://callink.berkeley.edu/organization/researchanddevelopment'>here</a> and we will contact you as soon as possible.</p>
 
-<form action="{{url_for('application.view_projects')}}" method="POST">
-<fieldset>
-<h1>Add A Project</h1>
-<hr>
-{{ forms.render(form) }}
-<p><input type="Submit" value="Add Project"></p>
-</fieldset>
-</form>
+<div id="addproj" class="phide">
+  <a class="nodecor"><h1>Add A Project</h1></a>
+  <form action="{{url_for('application.view_projects')}}" method="POST">
+  <fieldset>
+  <div id="projform">
+    <hr>
+    {{ forms.render(form) }}
+    <p><input type="Submit" value="Add Project"></p>
+  </div>
+  </fieldset>
+  </form>
+</div>
 
 <hr>
 

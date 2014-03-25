@@ -105,6 +105,9 @@ a {
   /* flatuicolors */
   color: #3498db;
 }
+a.nodecor {
+  text-decoration: none;
+}
 hr {
   border-color: #DDD;
 }
@@ -118,6 +121,23 @@ hr {
 ul {
   list-style-type: none;
   padding: 0;
+}
+
+/* project stuff */
+#addproj {
+
+}
+#addproj form {
+  text-align: inherit;
+}
+#addproj.pshow {
+  
+}
+#addproj.phide {
+
+}
+#projform {
+
 }
 
 /* for the main content */
