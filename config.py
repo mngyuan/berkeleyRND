@@ -6,5 +6,5 @@ SECRET_KEY = 'SO_RANDOM'
 SQLALCHEMY_DATABASE_URI = 'sqlite:///' + join(_cwd, 'projectdb.db')
 SQLALCHEMY_ECHO = True
 
-DEBUG = True
-ANALYTICS = False
+DEBUG = False
+ANALYTICS = True
