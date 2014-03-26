@@ -41,13 +41,15 @@ b {
 
 /* remaking the colors and stuffs */
 .navbar-nav>.active>a {
-  background-color: #333333;
+
 }
+
 .navbar-nav>li>a {
   transition: 0.2s;
   font-weight: 500;
   padding-bottom: 10px;
   padding-top: 10px;
+  color:white;
 }
 .navbar-nav>li>a:hover {
   color: white;

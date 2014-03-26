@@ -39,7 +39,6 @@ def page_not_found(e):
         msg=choice(msgs)), 404
 
 @application.route("/projects", methods=("GET", "POST"))
-@login_required
 def view_projects():
     form = ProjectForm()
 
